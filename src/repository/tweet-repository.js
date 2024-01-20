@@ -54,11 +54,22 @@ class TweetRepository{
 
     async getWithComments(id){
       try {
-        const tweet=await Tweet.findById(id).populate({path: 'comments'})
+        const tweet=await Tweet.findById(id).populate({path: 'comments'}).lean();
       } catch (error) {
         console.log(error);
       }
 
+    }
+
+    async getAll(){
+      try {
+        const tweets=await Tweet.find();
+        return tweets;
+        
+      } catch (error) {
+        console.log(error);
+        
+      }
     }
 
 
