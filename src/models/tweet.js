@@ -1,22 +1,17 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 //creating schema
-const tweetSchema = new mongoose.Schema({
+const tweetSchema = new mongoose.Schema(
+  {
     content: {
-        type: String,
-        required: true,
-        max:[250, 'Tweet Cannot be more than 250 characters']
+      type: String,
+      required: true,
+      max: [250, "Tweet Cannot be more than 250 characters"],
     },
-    hashtag: [
-        {
-            type:mongoose.Schema.Types.ObjectId,
-            ref: 'Hashtag'
-        }
-    ]
     
-   
-},
-{timestamps: true});
+  },
+  { timestamps: true }
+);
 
 //creating model
-const Tweet=mongoose.model('Tweet',tweetSchema);
-export default Tweet
+const Tweet = mongoose.model("Tweet", tweetSchema);
+export default Tweet;

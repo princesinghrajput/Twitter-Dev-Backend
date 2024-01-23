@@ -1,19 +1,19 @@
 import mongoose from "mongoose";
 //creating schema
-const commentSchema = new mongoose.Schema({
+const commentSchema = new mongoose.Schema(
+  {
     content: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     userEmail: {
-        type: String,
-    }
-   
-},
-{timestamps: true});
+      type: String,
+    },
+  },
+  { timestamps: true }
+);
 
 //creating model
-const Comment=mongoose.model('Comment',commentSchema);
+const Comment = mongoose.model("Comment", commentSchema);
 
-
-export default Comment
+export default Comment;
