@@ -27,19 +27,6 @@ class TweetRepository{
 
     }
 
-    async update(tweetId, data){
-
-      try {
-        const tweet = await Tweet.findByIdAndUpdate(tweetId, data, {new: true});
-        return tweet;
-        
-      } catch (error) {
-        console.log(error);
-      }
-
-       
-
-    }
 
     async destroy(id){
         try {
@@ -61,9 +48,9 @@ class TweetRepository{
 
     }
 
-    async getAll(){
+    async getAll(offset, limit){
       try {
-        const tweets=await Tweet.find();
+        const tweets=await Tweet.find().skip(offset).limit(limit);
         return tweets;
         
       } catch (error) {
