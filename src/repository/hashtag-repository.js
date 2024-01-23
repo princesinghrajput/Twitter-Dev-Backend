@@ -1,4 +1,4 @@
-const Hashtag = require('../models/hashtags')
+const Hashtag = require('../models/hashtag');
 
 class HashtagRepository{
  
@@ -11,6 +11,7 @@ class HashtagRepository{
 
         } catch (error) {
             console.log(error);
+            throw error;
         }
 
     }
@@ -18,6 +19,7 @@ class HashtagRepository{
     async bulkCreate(data){
         try {
             const tags= await Hashtag.insertMany(data);
+            return tags;
             
         } catch (error) {
             console.log(error);
@@ -45,7 +47,21 @@ class HashtagRepository{
         } catch (error) {
             console.log(error);
         }
+        
 
+    }
+    async findByName(titleList){
+        try {
+            const tags=await Hashtag.find(
+                {
+                title:titleList
+                }
+            );
+            return tags;
+            
+        } catch (error) {
+            console.log(error);
+        }
     }
 
 

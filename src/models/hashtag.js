@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
 const hashtagSchema = new mongoose.Schema({
-    title:{
+    title: {
         type: String,
         required: true,
-        
     },
     tweets: [
         {
@@ -12,10 +11,8 @@ const hashtagSchema = new mongoose.Schema({
             ref: 'Tweet'
         }
     ]
+}, { timestamps: true });
 
-
-},{timesstamps:true});
-
-const Hashtag=mongoose.model('Hashtag',hashtagSchema);
+const Hashtag = mongoose.model('Hashtag', hashtagSchema);
 
 module.exports = Hashtag;
