@@ -4,11 +4,11 @@ import { connect } from "./config/database.js";
 import service from "./services/tweet-service.js";
 
 
-import apiRoutes from './routes/index.js'
+import apiRoutes from './routes/index.js';
 
 const app = express();
 
-app.use('/api', apiRoutes)
+app.use('/api', apiRoutes);
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
@@ -17,8 +17,8 @@ app.use(bodyParser.urlencoded({extended:true}))
 
 
 
-app.listen(3000, async () => {
-    console.log("Server is running on port 8001");
+app.listen(8000, async () => {
+    console.log("Server is running on port 8000");
     await connect();
     console.log("Mongo db connected");
     let ser = new service();
